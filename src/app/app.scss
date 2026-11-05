@@ -1,0 +1,13 @@
+:host{
+  --mat-card-elevated-container-color: white;
+  --mat-paginator-container-background-color: white;
+  --mat-form-field-filled-container-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    max-width: 1200px;
+  }
+}

@@ -1,59 +1,30 @@
-# SignalStoreForms
+# Signal Store + Signal Forms 🚦📝
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.4.
+Blog: https://gedoplan.de/javablog/
 
-## Development server
+Kleine Demo-App mit **Angular 22**. Sie zeigt, wie **NgRx Signal Store**, **Signal Forms** und **Resources** zusammenspielen. 🤝
 
-To start a local development server, run:
+Was passiert hier? 👇
 
-```bash
-ng serve
-```
+- 🔍 **User-Liste** mit Suche (debounced) und Pagination, Daten von [dummyjson.com](https://dummyjson.com/users)
+- ✏️ **User-Details** als Signal Form, das per `submission` speichert
+- 📦 **API-Wrapper**: Der generierte Service wird in [`UserService`](src/app/api/user-service.ts) verpackt. Alle GETs kommen dort als `rxResource` raus.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Los geht's 🚀
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Danach [http://localhost:4200](http://localhost:4200) öffnen. Fertig! 🎉
 
-```bash
-ng generate --help
-```
+## Wo spielt die Musik? 🎵
 
-## Building
+Das Herzstück ist der State 👉 [`src/app/user/user-state.ts`](src/app/user/user-state.ts)
 
-To build the project run:
+- Dort liegen Suchbegriff und Pagination als State.
+- Die User-Liste ist eine Resource, die bei jeder Änderung am State automatisch neu lädt. ⚡
+- Bereitgestellt wird der Store in [`app.ts`](src/app/app.ts), genutzt in der [`UserList`](src/app/user/user-list/user-list.ts).
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+(by) GEDOPLAN, Dominik Mathmann

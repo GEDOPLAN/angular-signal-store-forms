@@ -1,0 +1,20 @@
+<header>
+  <mat-form-field>
+    <mat-label>User-Search</mat-label>
+    <input matInput [formField]="form.query">
+  </mat-form-field>
+  <mat-paginator [length]="users$.value()?.total || 0" [pageSizeOptions]="[5, 10, 25]"
+                 (page)="updatePage($event)"
+                 [pageIndex]="page$.pageIndex()"
+                 [pageSize]="page$.pageSize()">
+  </mat-paginator>
+</header>
+<main>
+  @if (users$.hasValue()) {
+    <ul>
+      @for (u of users$.value().users; track u.id) {
+      <li><a [routerLink]="u.id">{{u.email}}</a></li>
+      }
+    </ul>
+  }
+</main>

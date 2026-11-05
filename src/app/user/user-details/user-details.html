@@ -1,0 +1,7 @@
+<h2>User: {{ id() }}</h2>
+<form [formRoot]="userForm">
+  <div><input [formField]="userForm.firstName" /></div>
+  <div><input [formField]="userForm.lastName" /></div>
+  <div><input [formField]="userForm.email" /></div>
+  <button type="submit">submit</button>
+</form>
